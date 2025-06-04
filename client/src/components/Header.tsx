@@ -36,12 +36,16 @@ export const Header = (props: HeaderProps) => {
     const [addingItem, setAddingItem] = useState(false);
 
     const toggleForm = () => setAddingItem(oldState => !oldState);
+    const onSubmit = (newLabel: string) => {
+        onItemAdd(newLabel);
+        toggleForm();
+    }
 
     return (
         <StyledDiv>
             <h1>{children}</h1>
             {!addingItem && <button onClick={toggleForm}><PlusIcon /></button>}
-            {addingItem && <Form initialValue="" onSubmit={onItemAdd} onCancel={toggleForm}/>}
+            {addingItem && <Form initialValue="" onSubmit={onSubmit} onCancel={toggleForm}/>}
         </StyledDiv>
     );
 };
