@@ -1,6 +1,7 @@
 import { PlusIcon } from "@radix-ui/react-icons";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { Form } from "./form";
 
 const StyledDiv = styled.header`
     display: flex;
@@ -31,14 +32,16 @@ type HeaderProps = {
 };
 
 export const Header = (props: HeaderProps) => {
-    const { children } = props;
+    const { children, onItemAdd } = props;
+    const [addingItem, setAddingItem] = useState(false);
+
+    const toggleForm = () => setAddingItem(oldState => !oldState);
 
     return (
         <StyledDiv>
             <h1>{children}</h1>
-            <button>
-                <PlusIcon />
-            </button>
+            {!addingItem && <button onClick={toggleForm}><PlusIcon /></button>}
+            {addingItem && <Form initialValue="" onSubmit={onItemAdd} onCancel={toggleForm}/>}
         </StyledDiv>
     );
 };
