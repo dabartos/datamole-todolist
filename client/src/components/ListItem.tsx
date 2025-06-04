@@ -13,15 +13,22 @@ const StyledDiv = styled.div`
     padding: 5px;
     gap: 10px;
 
+    &:hover .controls {
+        visibility: visible;
+    }
+
     & button[role="checkbox"] {
         flex-shrink: 0;
     }
 
     & .controls {
+        visibility: hidden;
         margin-inline-start: auto;
         display: flex;
         gap: 5px;
     }
+
+    
 `;
 
 const Label = styled.label`
