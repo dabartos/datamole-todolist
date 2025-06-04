@@ -17,10 +17,21 @@ export const App = () => {
             <Container>
                 <Layout>
                     <Header onItemAdd={onItemAdd}>To Do app</Header>
-                    <List />
+                    <List>
+                        {items.sort((a, b) => {
+                            if (a.isDone !== b.isDone) {
+                                return a.isDone ? 1 : -1;
+                            }
+
+                            return (b.createdAt || 0) - (a.createdAt || 0);
+                        }).map(item =>
+                            <ListItem {...item} key={item.id} />
+                        )}
+                    </List>
                     <Footer todoItems={todoItems} doneItems={doneItems}/>
                 </Layout>
             </Container>
         </ThemeProvider>
     );
 }
+
