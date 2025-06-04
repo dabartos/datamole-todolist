@@ -4,15 +4,23 @@ import { List } from "./components/List";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { ThemeProvider } from "./components/providers/ThemeProvider";
+import { ListItem } from "./components/ListItem";
+import useToDoList from "./hooks/useToDoList";
+import { Form } from "./components/form";
 
-export const App = () => (
-    <ThemeProvider>
-        <Container>
-            <Layout>
-                <Header onItemAdd={() => console.warn("unimplemented")}>To Do app</Header>
-                <List />
-                <Footer />
-            </Layout>
-        </Container>
-    </ThemeProvider>
-);
+export const App = () => {
+
+    const { items, todoItems, doneItems, onItemAdd } = useToDoList()
+
+    return (
+        <ThemeProvider>
+            <Container>
+                <Layout>
+                    <Header onItemAdd={onItemAdd}>To Do app</Header>
+                    <List />
+                    <Footer todoItems={todoItems} doneItems={doneItems}/>
+                </Layout>
+            </Container>
+        </ThemeProvider>
+    );
+}
