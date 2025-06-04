@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { Checkbox } from "./Checkbox";
 import { Form } from "./form";
+import Button from "./Button";
 
 const StyledDiv = styled.div`
     display: flex;
@@ -38,12 +39,14 @@ export const ListItem = (props: LiteeItemProp) => {
             {!editingLabel && (
                 <>
                     <Label>{label}</Label>
-                    <button onClick={() => onItemDelete()}>
-                        <TrashIcon />
-                    </button>
-                    <button onClick={toggleForm}>
-                        <Pencil1Icon />
-                    </button>
+                    <span className="controls">
+                        <Button onClick={() => onItemDelete()}>
+                            <TrashIcon />
+                        </Button>
+                        <Button onClick={toggleForm}>
+                            <Pencil1Icon />
+                        </Button>
+                    </span>
                 </>
             )}
             {editingLabel && (
