@@ -27,8 +27,6 @@ const StyledDiv = styled.div`
         display: flex;
         gap: 5px;
     }
-
-    
 `;
 
 const Label = styled.label`
