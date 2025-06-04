@@ -9,6 +9,19 @@ import Button from "./Button";
 const StyledDiv = styled.div`
     display: flex;
     align-items: center;
+    margin: 5px;
+    padding: 5px;
+    gap: 10px;
+
+    & button[role="checkbox"] {
+        flex-shrink: 0;
+    }
+
+    & .controls {
+        margin-inline-start: auto;
+        display: flex;
+        gap: 5px;
+    }
 `;
 
 const Label = styled.label`
