@@ -10,3 +10,5 @@ I encountered several issues, sorted from most bothersome to least:
 
 After some time I realized that I will have to touch some of the components anyway because making extra wraps for everything only to add a class or two seemed just wrong.
 In the end I decided to go with the hook since I already started working on it so the functionality is all in there. I took a look at the setup and nothing seemed memoized or other so I wasn't thinking about performence that much. Other than that I added some design tweaks as asked in readme but I have a bad eye for these things and if I started to really poke in it it would probably end up ugly looking so I just fixed what I saw.
+
+edit.: I didn't have time to take a look at the optional goals or the server task which I realized was left unfinished after I ran out of time.
